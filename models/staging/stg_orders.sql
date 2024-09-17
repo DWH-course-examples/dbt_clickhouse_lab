@@ -5,7 +5,6 @@
     )
 }}
 
-
 SELECT
     O_ORDERKEY
     , O_CUSTKEY
