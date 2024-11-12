@@ -6,26 +6,26 @@ sources:
       schema: default
       tags: ["dbgen"]
       loader: S3
-      description: "TPCH synthetic data stored in S3"
+      description: "TPCH synthetic data stored in S3 _"
 
       tables:
 
         - name: customer
-          description: "Customers dimension"
+          description: "Customers dimension _"
           identifier: src_customer
 
         - name: orders
-          description: "Orders facts"
+          description: "Orders facts _"
           identifier: src_orders
 
         - name: lineitem
-          description: "Orders line items facts"
+          description: "Orders line items facts _"
           identifier: src_lineitem
 
         - name: part
-          description: "Parts dimension"
+          description: "Parts dimension _"
           identifier: src_part
 
         - name: supplier
-          description: "Suppliers dimension"
+          description: "Suppliers dimension _"
           identifier: src_supplier
