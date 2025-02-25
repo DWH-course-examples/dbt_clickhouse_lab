@@ -2,11 +2,17 @@
 version: 2
 
 models:
-    - name: f_lineorder_flat
-      description: Denormalized fact table
-      columns:
-        - name: L_ITEMKEY
-          description: ""
-          tests:
-            - unique
-            - not_null
+  - name: marts_orders_stat
+    description: "События создания заказа"
+    columns:
+      - name: dates
+        description: "Дата"
+      - name: completed_orders_count
+        description: "кол-во заказов, статус которых Завершен"
+      - name: completed_orders_sum
+        description: "сумма заказов, статус которых Завершен"
+      - name: cancelled_orders_count
+        description: "кол-во заказов, статус которых Отменен"
+      - name: cancelled_orders_sum
+        description: "сумма заказов, статус которых Отменен"
+    materialized: view

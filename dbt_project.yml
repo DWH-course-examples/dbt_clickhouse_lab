@@ -31,13 +31,22 @@ clean-targets:         # directories to be removed by `dbt clean`
 # In this example config, we tell dbt to build all models in the example/ directory
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
+
+
+
+
 models:
     clickhouse_starschema:
-      # Applies to all files under models/example/
         +materialized: table
         staging:
             +materialized: table
             +tags: ['staging']
-        marts:
+        ods:
             +materialized: table
+            +tags: ['ods']
+        dds:
+            +materialized: table
+            +tags: ['dds']
+        marts:
+            +materialized: view
             +tags: ['marts']

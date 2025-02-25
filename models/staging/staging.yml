@@ -2,43 +2,18 @@
 version: 2
 
 models:
+  - name: stg_messages
+    description: "Стейджинговая модель для сообщений, извлекаемых из INCOMING_MESSAGES с преобразованием JSON."
+    columns:
+      - name: _airbyte_raw_id
+        description: "Уникальный идентификатор записи из Airbyte."
+      - name: _airbyte_extracted_at
+        description: "Время чтения данных из БД Oracle"
+      - name: id
+        description: "Идентификатор сообщения."
+      - name: payload_raw
+        description: "Сырой JSON с полезными данными."
+      - name: received_at
+        description: "Время получения сообщения."
+    materialized: table
 
-    - name: stg_customer
-      columns:
-        - name: C_CUSTKEY
-          description: ""
-          tests:
-            - unique
-            - not_null
-
-    - name: stg_orders
-      columns:
-        - name: O_ORDERKEY
-          description: ""
-          tests:
-            - unique
-            - not_null
-
-    - name: stg_lineitem
-      columns:
-        - name: L_ITEMKEY
-          description: ""
-          tests:
-            - unique
-            - not_null
-
-    - name: stg_part
-      columns:
-        - name: P_PARTKEY
-          description: ""
-          tests:
-            - unique
-            - not_null
-
-    - name: stg_supplier
-      columns:
-        - name: S_SUPPKEY
-          description: ""
-          tests:
-            - unique
-            - not_null

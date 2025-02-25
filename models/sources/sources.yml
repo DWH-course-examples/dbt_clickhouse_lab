@@ -1,31 +1,17 @@
 version: 2
 
 sources:
-
-    - name: dbgen
-      schema: default
-      tags: ["dbgen"]
-      loader: S3
-      description: "TPCH synthetic data stored in S3 _"
-
-      tables:
-
-        - name: customer
-          description: "Customers dimension _"
-          identifier: src_customer
-
-        - name: orders
-          description: "Orders facts _"
-          identifier: src_orders
-
-        - name: lineitem
-          description: "Orders line items facts _"
-          identifier: src_lineitem
-
-        - name: part
-          description: "Parts dimension _"
-          identifier: src_part
-
-        - name: supplier
-          description: "Suppliers dimension _"
-          identifier: src_supplier
+  - name: oracle_source
+    schema: db_oracle
+    tables:
+      - name: INCOMING_MESSAGES
+        identifier: db_oracle_raw__stream_INCOMING_MESSAGES  # Фактическое имя таблицы в базе данных
+        columns:
+          - name: _airbyte_raw_id
+            data_type: string
+          - name: _airbyte_data
+            data_type: string
+          - name: _airbyte_extracted_at
+            data_type: datetime64
+          - name: _airbyte_loaded_at
+            data_type: nullable
