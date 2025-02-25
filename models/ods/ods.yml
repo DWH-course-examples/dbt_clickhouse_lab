@@ -1,0 +1,21 @@
+
+version: 2
+
+models:
+  - name: ods_ord_create_events
+    description: "События создания заказа"
+    columns:
+      - name: agentId
+        description: "наименование агента источника"
+      - name: trackingPointId
+        description: "наименование агента источника"
+    materialized: table
+  - name: ods_ord_update_events
+    description: "События создания заказа"
+    columns:
+      - name: agentId
+        description: "наименование агента источника"
+      - name: trackingPointId
+        description: "наименование агента источника"
+    materialized: table
+
