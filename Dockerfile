@@ -1,15 +1,14 @@
 ARG DBT_VERSION=1.0.0
 FROM fishtownanalytics/dbt:${DBT_VERSION}
 
-# Terraform configuration file
-# COPY terraformrc root/.terraformrc
+ENV DBT_PROFILES_DIR=.
 
 # Install utils
 RUN apt -y update \
     && apt -y upgrade \
     && apt -y install curl wget gpg unzip
 
-# Install dbt adapter
+
 RUN set -ex \
     && python -m pip install setuptools \
     && python -m pip install dbt-clickhouse==1.4.0 dbt-core==1.4.0 numpy
@@ -25,8 +24,4 @@ RUN curl -sL https://hashicorp-releases.yandexcloud.net/terraform/${TERRAFORM_VE
     && install -o root -g root -m 0755 terraform /usr/local/bin/terraform \
     && rm -rf terraform terraform.zip
 
-# Set default directory for dbt profiles
-ENV DBT_PROFILES_DIR=.
-
-# Default command (can be overridden)
-CMD ["python", "--version"]
+ENTRYPOINT [ "tail", "-f", "/dev/null" ]
