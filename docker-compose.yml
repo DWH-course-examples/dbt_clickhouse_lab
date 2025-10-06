@@ -1,6 +1,6 @@
 version: '2'
 services:
-    clickhouse:
+  clickhouse:
     image: yandex/clickhouse-server
     hostname: clickhouse
     ports:
