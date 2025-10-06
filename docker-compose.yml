@@ -1,6 +1,17 @@
 version: '2'
 services:
-
+    clickhouse:
+    image: yandex/clickhouse-server
+    hostname: clickhouse
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+      - "9009:9009"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 262144
+        hard: 262144
   dev:
     build: .
     volumes:
