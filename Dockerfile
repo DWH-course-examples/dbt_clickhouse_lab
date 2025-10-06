@@ -27,3 +27,6 @@ RUN curl -sL https://hashicorp-releases.yandexcloud.net/terraform/${TERRAFORM_VE
 
 # Set default directory for dbt profiles
 ENV DBT_PROFILES_DIR=.
+
+# Default command (can be overridden)
+CMD ["python", "--version"]
