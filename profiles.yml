@@ -3,21 +3,24 @@ config:
   use_colors: True
   partial_parse: True
 
+
+
 clickhouse_starschema:
   outputs:
     dev:
       type: clickhouse
-      schema: default
-      host: "{{ env_var('DBT_HOST') }}"
-      port: 8443
-      user: "{{ env_var('DBT_USER') }}"
-      password: "{{ env_var('DBT_PASSWORD') }}"
-      secure: True
+      schema: db_oracle
+      host: 51.250.66.143
+      port: 8123
+      user: default
       verify: False
     ci:
       type: clickhouse
       host: clickhouse
       port: 8123
-      schema: default
+      schema: db_oracle
       threads: 4
   target: dev
+
+
+
