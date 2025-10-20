@@ -10,8 +10,13 @@ RUN apt -y update \
 
 
 RUN set -ex \
+<<<<<<< HEAD
     && python -m pip install setuptools \
     && python -m pip install dbt-clickhouse==1.4.0 dbt-core==1.4.0 numpy
+=======
+    && python -m pip install --upgrade pip setuptools packaging wheel \
+    && pip install "dbt-core==1.9.6" "dbt-clickhouse==1.9.3" 
+>>>>>>> main
 
 # Install yc CLI
 RUN curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | \
