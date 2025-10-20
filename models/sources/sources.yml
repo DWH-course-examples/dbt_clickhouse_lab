@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+
+    - name: dbgen
+      schema: default
+      tags: ["dbgen"]
+      loader: S3
+      description: "TPCH synthetic data stored in S3"
+
+      tables:
+
+        - name: customer
+          description: "Customers dimension"
+          identifier: src_customer
+
+        - name: orders
+          description: "Orders facts"
+          identifier: src_orders
+
+        - name: lineitem
+          description: "Orders line items facts"
+          identifier: src_lineitem
+
+        - name: part
+          description: "Parts dimension"
+          identifier: src_part
+
+        - name: supplier
+          description: "Suppliers dimension"
+          identifier: src_supplier
