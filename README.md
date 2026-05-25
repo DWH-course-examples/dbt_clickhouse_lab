@@ -266,6 +266,7 @@ If it works from your terminal, commit, open PR and trigger automated testing wi
 
 ⚠️ Attention! Always delete cloud resources after you finished!
 
+
 ![image](https://user-images.githubusercontent.com/34193409/214896888-3c6db293-8f1c-4931-8277-b2e4137f30a3.png)
 
 ```bash
