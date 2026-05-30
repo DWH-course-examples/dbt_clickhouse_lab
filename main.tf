@@ -28,10 +28,10 @@ resource "yandex_mdb_clickhouse_cluster" "clickhouse_starschema" {
     }
 
     config {
-      log_level                       = "TRACE"
-      max_connections                 = 128
-      max_concurrent_queries          = 128
-      keep_alive_timeout              = 3000
+      log_level              = "TRACE"
+      max_connections        = 128
+      max_concurrent_queries = 128
+      keep_alive_timeout     = 3000
     }
   }
 

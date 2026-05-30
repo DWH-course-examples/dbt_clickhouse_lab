@@ -15,9 +15,9 @@ resource "yandex_mdb_clickhouse_cluster" "clickhouse_starschema" {
   name                    = "clickhouse_starschema"
   environment             = "PRESTABLE"
   network_id              = yandex_vpc_network.default_network.id
-  sql_database_management = true
-  sql_user_management     = true
-  admin_password          = var.admin_password
+  sql_database_management = false
+  sql_user_management     = false
+  admin_password          = ""
 
   clickhouse {
     resources {
