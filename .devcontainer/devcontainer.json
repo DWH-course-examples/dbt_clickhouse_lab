@@ -1,26 +1,19 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-	"name": "Existing Dockerfile",
-	"build": {
-		// Sets the run context to one level up instead of the .devcontainer folder.
-		// "context": "."
-		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
-		"dockerfile": "../Dockerfile"
-	},
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [
-		8080
-	],
-	// The optional 'workspaceFolder' property is the path VS Code should open by default when
-	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
-	// "workspaceFolder": "/workspace",
-	"customizations": {
-	},
-	"features": {
-	}
+    "name": "dbt Development",
+    "image": "my-dbt-dev:latest",
+    "forwardPorts": [8080],
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "innoverio.vscode-dbt-power-user",
+                "batisteo.vscode-dbt",
+                "ms-python.python",
+                "redhat.vscode-yaml"
+            ]
+        }
+    },
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+    ]
 }
