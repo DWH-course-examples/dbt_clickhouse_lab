@@ -17,7 +17,7 @@ resource "yandex_mdb_clickhouse_cluster" "clickhouse_starschema" {
   network_id              = yandex_vpc_network.default_network.id
   sql_database_management = false
   sql_user_management     = false
-  admin_password          = "15975333"
+  admin_password          = ""
 
   clickhouse {
     resources {

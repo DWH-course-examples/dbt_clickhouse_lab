@@ -11,7 +11,7 @@ clickhouse_starschema:
       host: "rc1b-8quhdmm6i48fipbt.mdb.yandexcloud.net"
       port: 8443
       user: "admin"
-      password: "15975333"
+      password: ""
       secure: True
       verify: False
     ci:
