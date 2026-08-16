@@ -2,12 +2,16 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
 	"name": "Existing Dockerfile",
+        "runArgs": [
+           "--network=my-shared-network"
+        ],
 	"build": {
 		// Sets the run context to one level up instead of the .devcontainer folder.
 		// "context": "."
 		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
 		"dockerfile": "../Dockerfile"
 	},
+        "postCreateCommand": "pip uninstall -y dbt-core dbt-postgres dbt-redshift dbt-snowflake dbt-bigquery && pip install 'dbt-core~=1.8.0' 'dbt-clickhouse~=1.8.0'",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

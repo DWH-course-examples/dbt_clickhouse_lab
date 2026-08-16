@@ -8,11 +8,11 @@ clickhouse_starschema:
     dev:
       type: clickhouse
       schema: default
-      host: "{{ env_var('DBT_HOST') }}"
-      port: 8443
-      user: "{{ env_var('DBT_USER') }}"
-      password: "{{ env_var('DBT_PASSWORD') }}"
-      secure: True
+      host: clickhouse
+      port: 8123
+      user: default
+      password: secret_password
+      secure: False
       verify: False
     ci:
       type: clickhouse
@@ -20,4 +20,4 @@ clickhouse_starschema:
       port: 8123
       schema: default
       threads: 4
-  target: ci
+  target: dev

@@ -6,7 +6,8 @@ ENV DBT_PROFILES_DIR=.
 # Install utils
 RUN apt -y update \
     && apt -y upgrade \
-    && apt -y install curl wget gpg unzip
+    && apt -y install curl wget gpg unzip vim iputils-ping\
+    && rm -rf /var/lib/apt/lists/*
 
 
 RUN set -ex \
@@ -23,5 +24,16 @@ RUN curl -sL https://hashicorp-releases.yandexcloud.net/terraform/${TERRAFORM_VE
     && unzip terraform.zip \
     && install -o root -g root -m 0755 terraform /usr/local/bin/terraform \
     && rm -rf terraform terraform.zip
+
+RUN mkdir -p /usr/local/share/ca-certificates/ && \
+    wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+         --output-document /usr/local/share/ca-certificates/Yandex_RootCA.crt && \
+    wget "https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem" \
+         --output-document /usr/local/share/ca-certificates/Yandex_IntermediateCA.crt && \
+    chmod 644 /usr/local/share/ca-certificates/Yandex_RootCA.crt \
+              /usr/local/share/ca-certificates/Yandex_IntermediateCA.crt && \
+    update-ca-certificates 
+
+    
 
 ENTRYPOINT [ "tail", "-f", "/dev/null" ]
