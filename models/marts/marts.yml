@@ -10,3 +10,20 @@ models:
           tests:
             - unique
             - not_null
+    - name: f_orders_stats
+      description: >
+        Статистика заказов на основе f_lineorder_flat.
+        Одна строка соответствует сочетанию года, статуса и приоритета заказа.
+      columns:
+        - name: O_ORDERYEAR
+          description: "Год оформления заказа."
+        - name: O_ORDERSTATUS
+          description: "Статус заказа."
+        - name: O_ORDERPRIORITY
+          description: "Приоритет заказа."
+        - name: num_orders
+          description: "Количество уникальных заказов в группе."
+        - name: num_customers
+          description: "Количество уникальных клиентов в группе."
+        - name: revenue
+          description: "Сумма произведений цены позиции до скидки на долю скидки по формуле задания."
