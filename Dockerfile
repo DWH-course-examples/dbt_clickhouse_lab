@@ -4,9 +4,15 @@ FROM fishtownanalytics/dbt:${DBT_VERSION}
 ENV DBT_PROFILES_DIR=.
 
 # Install utils
-RUN apt -y update \
-    && apt -y upgrade \
-    && apt -y install curl wget gpg unzip
+RUN printf '%s\n' \
+    'deb https://archive.debian.org/debian bullseye main' \
+    'deb https://archive.debian.org/debian-security bullseye-security main' \
+    > /etc/apt/sources.list \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get -o Acquire::Check-Valid-Until=false update \
+    && apt-get install -y --no-install-recommends \
+    ca-certificates curl wget gpg unzip \
+    && rm -rf /var/lib/apt/lists/*
 
 
 RUN set -ex \
